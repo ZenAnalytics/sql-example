@@ -1,4 +1,4 @@
-# Запрос собирает данные 
+# Запрос собирает данные по сессиям в разрезе utm-меток
 SELECT 
   IFNULL(REGEXP_EXTRACT(  
         preprocessing.DECODE_URI_COMPONENT((SELECT MAX(IF(key="page_location",value.string_value , NULL)) FROM UNNEST(a.event_params))), 
